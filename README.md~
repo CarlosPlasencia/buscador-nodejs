@@ -1,0 +1,40 @@
+API
+
+1. Apps
+	1.1 Principal
+	1.2 Usuarios
+		1.2.1 Empleados
+		1.2.2 Clientes
+		1.2.3 Proveedores
+	1.3 Empresa
+		1.3.1 Urls:
+			1.3.1.1 /api/company (GET): Esta api devuelve la información completa de la empresa.
+			1.3.1.1 /api/company (POST): Esta api crea la información de una empresa y requiere lo siguientes datos: Nombre, almacenes, etc.
+			Almacenes:
+				1. Crear: Nombre, codigo, email
+	1.4 Articulos
+	1.5 Compras
+	1.6 Ventas
+	1.7 Contratos
+          1.7.1 Ampliaciones 
+             1.7.1.1 Urls: 
+                1.7.1.1.1 /api/ampliaciones (GET ):Esta api devuelve todas las ampliaciones de un contrato
+                1.7.1.1.2 /api/ampliaciones (POST): Esta api crea las ampliaciones requiriendo los siguientes datos : Valor, mes(es), usuario, fecha
+          1.7.2 Abonos 
+             1.7.2.1 Urls:
+                1.7.2.1.1 /api/abonos (GET): Esta api devuelve todos los abonos de un contrato
+                1.7.2.1.2 /api/abonos (POST) Esta api crea los abonos requiriendo los siguiente datos : Valor, usuario, fecha
+          1.7.3 Aumentos
+          	1.7.3.1 Urls:
+                1.7.3.1.1 /api/:codigo/aumentos (GET): Esta api devuelve todos los aumentos de un contrato dado un codigo de contrato
+                1.7.3.1.2 /api/:codigo/aumentos (POST) Esta api crea los aumentos requiriendo los siguiente datos : Valor, fecha
+                1.7.3.1.3  /api/:codigo/aumentos/:id (GET) Esta api devuelve los detalles de un aumento dado su id
+                1.7.3.1.4  /api/:codigo/aumentos/:id (PATCH) Esta api edita los detalles de un aumento dado su id requiriendo los siguiente datos : Valor, fecha
+                1.7.3.1.5  /api/:codigo/aumentos/:id (DELETE) Esta api elimina un aumento dado su id
+          1.7.4 Disolución
+			1.7.4.1 Urls:
+          		1.7.4.1.1 /api/:codigo/disoluciones (GET): Esta api devuelve todas las disoluciones de un contrato dado un codigo de contrato
+                1.7.4.1.2 /api/:codigo/disoluciones (POST) Esta api crea las disoluciones requiriendo los siguiente datos : Valor, descuento, motivo, fecha
+                1.7.4.1.3  /api/:codigo/disoluciones/:id (GET) Esta api devuelve los detalles de una disolucion dado su id
+                1.7.4.1.4  /api/:codigo/disoluciones/:id (PATCH) Esta api edita los detalles de una disolucion dado su id requiriendo los siguiente datos : Valor, descuento, motivo, fecha
+                1.7.4.1.5  /api/:codigo/disoluciones/:id (DELETE) Esta api elimina una disolucion dado su id

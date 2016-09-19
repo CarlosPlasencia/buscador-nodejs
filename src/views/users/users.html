@@ -1,0 +1,126 @@
+{% extends "../base.html" %}
+
+{% block titulo %}
+  Buscador
+{% endblock titulo %}
+
+{% block body %}
+ 
+
+  <div class="container">
+
+    <article>       
+        <form method="GET" action="/usuarios/">
+          <input id="search" name="search" type="text" value="Buscar..." onfocus="if (this.value == 'Buscar...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Buscar...';}" />
+          <input type="submit" value="Ir" /><br>
+        </form>
+      </article>
+      
+      {% if users %}
+         <center><h1>Usuarios</h1></center> 
+         <article class="detail__content">
+          <table class="table">
+            <thead>
+              <tr class="table__head">
+                <td class="table__head__item"><strong>ID</strong></td>
+                <td class="table__head__item"><strong>Nombre</strong></td>
+                <td class="table__head__item"><strong>Apellido</strong></td>
+                <td class="table__head__item"><strong>Email</strong></td>
+              </tr>
+            </thead>
+            <tbody>
+              {% for user in users %}
+              <tr class="table__body">
+                <td>{{ user._id|json_encode|replace('"', '')|replace('"', '') }}</td>
+                <td>{{ user.nombres }}</td>
+                <td>{{ user.apellidos }}</td>
+                <td>{{ user.email }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </article>
+      {% else %}
+
+       <center><h1>Busqueda por nombre</h1></center> 
+         <article class="detail__content">
+          <table class="table">
+            <thead>
+              <tr class="table__head">
+                <td class="table__head__item"><strong>ID</strong></td>
+                <td class="table__head__item"><strong>Nombre</strong></td>
+                <td class="table__head__item"><strong>Apellido</strong></td>
+                <td class="table__head__item"><strong>Email</strong></td>
+              </tr>
+            </thead>
+            <tbody>
+              {% for user in users_nombres %}
+              <tr class="table__body">
+                <td>{{ user._id|json_encode|replace('"', '')|replace('"', '') }}</td>
+                <td>{{ user.nombres }}</td>
+                <td>{{ user.apellidos }}</td>
+                <td>{{ user.email }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </article>
+
+         <center><h1>Busqueda por apellido</h1></center> 
+         <article class="detail__content">
+          <table class="table">
+            <thead>
+              <tr class="table__head">
+                <td class="table__head__item"><strong>ID</strong></td>
+                <td class="table__head__item"><strong>Nombre</strong></td>
+                <td class="table__head__item"><strong>Apellido</strong></td>
+                <td class="table__head__item"><strong>Email</strong></td>
+              </tr>
+            </thead>
+            <tbody>
+              {% for user in users_apellidos %}
+              <tr class="table__body">
+                <td>{{ user._id|json_encode|replace('"', '')|replace('"', '') }}</td>
+                <td>{{ user.nombres }}</td>
+                <td>{{ user.apellidos }}</td>
+                <td>{{ user.email }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </article>
+
+         <center><h1>Busqueda por email</h1></center> 
+         <article class="detail__content">
+          <table class="table">
+            <thead>
+              <tr class="table__head">
+                <td class="table__head__item"><strong>ID</strong></td>
+                <td class="table__head__item"><strong>Nombre</strong></td>
+                <td class="table__head__item"><strong>Apellido</strong></td>
+                <td class="table__head__item"><strong>Email</strong></td>
+              </tr>
+            </thead>
+            <tbody>
+              {% for user in users_email %}
+              <tr class="table__body">
+                <td>{{ user._id|json_encode|replace('"', '')|replace('"', '') }}</td>
+                <td>{{ user.nombres }}</td>
+                <td>{{ user.apellidos }}</td>
+                <td>{{ user.email }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </article>
+
+
+
+
+      {% endif %} 
+       
+
+  </div>
+
+
+{% endblock body %}
